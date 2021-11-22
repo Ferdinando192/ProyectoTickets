@@ -1,0 +1,106 @@
+﻿@model IEnumerable<ProyectoTickets.INCIDENTE>
+
+@{
+    ViewBag.Title = "Incidentes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="body-ticket">
+    <div class="grid-body">
+        <h2>Tickets</h2>
+        <hr />
+
+       
+
+        @Html.ActionLink("Nuevo Ticket", "Create", "INCIDENTE", new { @data_toggle = "modal", @data_target = "#newTicket", @class = " btn btn-success" })
+
+
+
+        <div class="padding"></div>
+        <div class="row">
+            <div class="col-md-12">
+
+                <!--LISTADO-->
+
+                @foreach (var item in Model)
+                {
+                    <ul class="list-group fa-padding">
+
+                        <li class="list-group-item">
+                            <div class="media">
+                                <i class="fa fa-cog pull-left"></i>
+                                <div class="media-body">
+                                    Asunto: <strong>@Html.DisplayFor(modelItem => item.NOMBRE)</strong>
+                                    <span class="label label-primary">
+                                        @Html.DisplayFor(modelItem => item.PRIORIDAD.NOMBRE_PRIORIDAD)
+                                    </span>
+                                    <span class=" pull-right label label-primary">@Html.DisplayFor(modelItem => item.ESTADO.NOMBRE_ESTADO)</span>
+                                    <br />
+                                    <br />
+                                    <p class="info">
+                                        Creado por: <strong> @Html.DisplayFor(modelItem => item.AspNetUsers.UserName) </strong>
+                                        &nbsp | &nbsp &nbsp Fecha de creacion: <strong>  @Html.DisplayFor(modelItem => item.FECHA_CREACION)</strong>
+                                        &nbsp | &nbsp &nbsp Categoria: <i class="fa fa-comments"></i> <strong>@Html.DisplayFor(modelItem => item.CATEGORIA.NOMBRE_CATEGORIA)</strong>
+                                    </p>
+
+                                    <div class="pull-right">
+                                        @Html.ActionLink("Ver", "Details", new { id = item.ID_INCIDENTE }, new { @class = " btn btn-info" })
+                                        @Html.ActionLink("Responder", "Edit", new { id = item.ID_INCIDENTE }, new { @class = " btn btn-warning" })
+                                        @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_INCIDENTE }, new { @class = " btn btn-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+
+
+                }
+                <!--FIN LISTADO-->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@*  Modal CREATE *@
+
+<div class="modal fade"
+     id="newTicket"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="newIssue"
+     aria-hidden="true"
+     style="display: none">
+    <div class="modal-wrapper">
+        <div class="modal-dialog">
+            <div class="modal-content">
+             
+                <form action="#" method="post">
+                    <div class="modal-body">
+                        <br />  
+                        CARGANDO...
+                        <br />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button"
+                                class="btn btn-default"
+                                data-dismiss="modal">
+                            <i class="fa fa-times"></i> Discard
+                        </button>
+                        <button type="submit"
+                                class="btn btn-primary pull-right">
+                            <i class="fa fa-pencil"></i> Create
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,178 @@
+﻿@model ProyectoTickets.INCIDENTE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card-all">
+
+    <div class="card-header text-center">
+
+        <h2>Detalle del incidente</h2>
+    </div>
+
+    <div class="card-body ">
+
+        <!--
+           <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label> </label>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label> </label>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label> </label>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        -->
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>@Html.DisplayName("Asunto") </label>
+                    <div class="">
+                        @Html.DisplayFor(model => model.NOMBRE)
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label> @Html.DisplayName("Usuario") </label>
+                    <div>
+                        @Html.DisplayFor(model => model.AspNetUsers.UserName)
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>@Html.DisplayName("Origen") </label>
+                    <div>
+                        @Html.DisplayFor(model => model.CANAL_ORIGEN.NOMBRE_ORIGEN)
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label> @Html.DisplayName("Creación") </label>
+                    <div>
+                        @Html.DisplayFor(model => model.FECHA_CREACION)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label> @Html.DisplayName("Resuelto") </label>
+                    <div>
+                        @Html.DisplayFor(model => model.FECHA_ACTUALIZACION)
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>@Html.DisplayName("Duración") </label>
+                    <div>
+                        @Html.DisplayFor(model => model.DURACION)
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label> @Html.DisplayName("Categoria")</label>
+                    <div>
+                        @Html.DisplayFor(model => model.CATEGORIA.NOMBRE_CATEGORIA)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>   @Html.DisplayName("Prioridad") </label>
+                    <div>
+                        @Html.DisplayFor(model => model.PRIORIDAD.NOMBRE_PRIORIDAD)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label> @Html.DisplayName("Estado")</label>
+                    <div>
+                        @Html.DisplayFor(model => model.ESTADO.NOMBRE_ESTADO)
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <br />
+        <div class="row ">
+            <div class="col-md-10 ">
+                <div class="form-group">
+                    <label>@Html.DisplayName("Descripcion") </label>
+                    <div>
+                        @Html.DisplayFor(model => model.DESCRIPCION)
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <hr />
+        <div class="row ">
+            <div class="col-md-10 ">
+                <div class="form-group">
+                    <label> @Html.DisplayName("Respuesta") </label>
+                    <div>
+                        @Html.DisplayFor(model => model.MOTIVO_CIERRE)
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br />
+        <hr />  
+        <div class="pull-right">
+            <button class="btn btn-default "> @Html.ActionLink("Volver a los tickets", "Index")</button>|
+            @Html.ActionLink("Resolver", "Edit", new { id = Model.ID_INCIDENTE }, new { @class = "btn btn-primary" })
+        </div>
+
+    </div>
+
+
+
+</div>

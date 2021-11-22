@@ -1,0 +1,188 @@
+﻿@model ProyectoTickets.INCIDENTE
+
+@{
+    //ViewBag.Title = "Create";
+    Layout = null;
+  
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/main.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/jquery-ui.css")
+}
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+<div class="card-all">
+
+    <div class="card-header text-center">
+
+        <h2>Crear nuevo ticket</h2>
+
+    </div>
+
+    <div class="card-body ">
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <hr />
+
+
+            <div class="row">
+                <div class="col-md-5 inputCreate">
+                    <div class="form-group">
+                        <label> @Html.DisplayName("Usuario")</label>
+                        <div>
+                            @Html.DropDownList("ID_USUARIO", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ID_USUARIO, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>@Html.DisplayName("Estado")</label>
+                        <div>
+                            @Html.DropDownList("ID_ESTADO", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ID_ESTADO, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-5 inputCreate">
+                    <div class="form-group">
+                        <label> @Html.DisplayName("Categoria")</label>
+                        <div>
+                            @Html.DropDownList("ID_CATEGORIA", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ID_CATEGORIA, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>@Html.DisplayName("Prioridad") </label>
+                        <div>
+                            @Html.DropDownList("ID_PRIORIDAD", null, htmlAttributes: new { @class = "form-control", })
+                            @Html.ValidationMessageFor(model => model.ID_PRIORIDAD, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-5 inputCreate">
+                    <div class="form-group">
+                        <label> @Html.DisplayName("Origen")</label>
+                        <div>
+                            @Html.DropDownList("ID_ORIGEN", null, htmlAttributes: new { @class = "form-control", @placeholder = "Origen" })
+                            @Html.ValidationMessageFor(model => model.ID_ORIGEN, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>@Html.DisplayName("Fecha de creacion") </label>
+                        <div>
+                            @Html.EditorFor(model => model.FECHA_CREACION, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FECHA_CREACION, "", new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-10 inputCreate">
+                    <div class="form-group">
+                        <label> @Html.DisplayName("Asunto")</label>
+                        <div>
+                            @Html.TextAreaFor(model => model.NOMBRE, new { @class = "form-control", @rows = "4", @cols = "160" })
+                            @Html.ValidationMessageFor(model => model.NOMBRE, "", new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10 inputCreate">
+                    <div class="form-group">
+                        <label>@Html.DisplayName("Descripción") </label>
+                        <div>
+                            @Html.TextAreaFor(model => model.DESCRIPCION, new { @class = "form-control", @rows = "6", @cols = "160" })
+                            @Html.ValidationMessageFor(model => model.DESCRIPCION, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div hidden>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FECHA_ACTUALIZACION, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FECHA_ACTUALIZACION, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FECHA_ACTUALIZACION, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DURACION, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DURACION, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DURACION, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MOTIVO_CIERRE, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.MOTIVO_CIERRE, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MOTIVO_CIERRE, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="modal-footer ">
+                <button type="button"
+                        class="btn btn-default modalBtn btnModals"
+                        data-dismiss="modal">
+                    Cerrar
+                </button>
+
+                <div class="pull-right">
+                    <input type="submit" value="Crear" class=" btnModals btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+}
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/jquery-ui.js")
+    @Scripts.Render("~/Scripts/DatePickerReady.js")
+   
+
+
+
