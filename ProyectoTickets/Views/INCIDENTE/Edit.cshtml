@@ -163,6 +163,7 @@
                         <label> @Html.LabelFor(model => model.FECHA_ACTUALIZACION, "Fecha cierre")</label>
                         <div>
                             @Html.EditorFor(model => model.FECHA_ACTUALIZACION, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FECHA_ACTUALIZACION, "", new { @class = "text-danger" })
 
                         </div>
                     </div>
