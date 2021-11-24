@@ -14,7 +14,7 @@ namespace ProyectoTickets
     
     public partial class INCIDENTE
     {
-        public string ID_INCIDENTE { get; set; }
+        public int ID_INCIDENTE { get; set; }
         public string ID_USUARIO { get; set; }
         public Nullable<int> ID_CATEGORIA { get; set; }
         public Nullable<int> ID_PRIORIDAD { get; set; }
