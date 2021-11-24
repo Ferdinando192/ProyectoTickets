@@ -8,6 +8,6 @@
         dt = (System.DateTime)Model;
 
     }
-    @Html.TextBox("", String.Format("{0:d}", dt.ToShortDateString()),
-     new { @class = "datefield form-control", type = "string", @placeholder = "DD/MM/YYYY" })
+    @Html.TextBox("", String.Format("{0:yyyy/MM/dd }", dt),
+     new { @class = "datefield form-control", type = "string", @placeholder = "YYYY/MM/DD" })
 } 
