@@ -203,10 +203,14 @@
       <DependentUpon>CONN.edmx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DEPARTAMENTOController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\INCIDENTEController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="C__MigrationHistory.cs">
+      <DependentUpon>CONN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DEPARTAMENTO.cs">
       <DependentUpon>CONN.tt</DependentUpon>
     </Compile>
     <Compile Include="ESTADO.cs">
@@ -318,6 +322,11 @@
     <Content Include="Views\INCIDENTE\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\DEPARTAMENTO\Create.cshtml" />
+    <Content Include="Views\DEPARTAMENTO\Delete.cshtml" />
+    <Content Include="Views\DEPARTAMENTO\Details.cshtml" />
+    <Content Include="Views\DEPARTAMENTO\Edit.cshtml" />
+    <Content Include="Views\DEPARTAMENTO\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -35,5 +35,6 @@ namespace ProyectoTickets
         public virtual DbSet<ESTADO> ESTADO { get; set; }
         public virtual DbSet<INCIDENTE> INCIDENTE { get; set; }
         public virtual DbSet<PRIORIDAD> PRIORIDAD { get; set; }
+        public virtual DbSet<DEPARTAMENTO> DEPARTAMENTO { get; set; }
     }
 }

@@ -23,6 +23,7 @@
         <AssociationConnector Association="db_a7cc1a_ticketsdbModel.FK__INCIDENTE__ID_ES__2F10007B" ManuallyRouted="false" />
         <AssociationConnector Association="db_a7cc1a_ticketsdbModel.FK__INCIDENTE__ID_PR__2E1BDC42" ManuallyRouted="false" />
         <AssociationConnector Association="db_a7cc1a_ticketsdbModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="db_a7cc1a_ticketsdbModel.DEPARTAMENTO" Width="1.5" PointX="8.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
