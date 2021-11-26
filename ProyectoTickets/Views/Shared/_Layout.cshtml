@@ -26,7 +26,18 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                     <li>@Html.ActionLink("Incidente", "index", "Incidente")</li>
-                    <li>@Html.ActionLink("Departamento", "Index", "DEPARTAMENTO")</li>
+                    
+                   
+                    <li class="Dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administración<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Administrar Departamentos", "Index", "DEPARTAMENTO")</li>
+                            <li>@Html.ActionLink("Administrar Categorías", "Index", "CATEGORIA")</li>
+                            <li>@Html.ActionLink("Administrar Roles", "Index", "AspNetRoles")</li>
+                            <li class="divider"></li>
+                            <li></li>
+                        </ul>
+                    </li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

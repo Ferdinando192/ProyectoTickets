@@ -1,0 +1,27 @@
+﻿@model ProyectoTickets.CATEGORIA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CATEGORIA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE_CATEGORIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE_CATEGORIA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_CATEGORIA }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
