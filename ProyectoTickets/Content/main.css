@@ -220,7 +220,6 @@ body {
     .list-group-item:hover {
         background: #666666;
         color: #fff;
-        animation-delay;
         transition: 0.2s ease-in-out;
     }
 
