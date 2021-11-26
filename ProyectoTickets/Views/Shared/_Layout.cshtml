@@ -9,6 +9,7 @@
     @Styles.Render("~/Content/main.css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/jquery-ui.css")
+    @Styles.Render("~/Content/estiloindex.js")
 
 </head>
 <body>
@@ -26,14 +27,13 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                     <li>@Html.ActionLink("Incidente", "index", "Incidente")</li>
-                    
-                   
+ 
                     <li class="Dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administración<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Administrar Departamentos", "Index", "DEPARTAMENTO")</li>
-                            <li>@Html.ActionLink("Administrar Categorías", "Index", "CATEGORIA")</li>
-                            <li>@Html.ActionLink("Administrar Roles", "Index", "AspNetRoles")</li>
+                            <li class="menu">@Html.ActionLink("Administrar Departamentos", "Index", "DEPARTAMENTO")</li>
+                            <li class="menu">@Html.ActionLink("Administrar Categorías", "Index", "CATEGORIA")</li>
+                            <li class="menu">@Html.ActionLink("Administrar Roles", "Index", "AspNetRoles")</li>
                             <li class="divider"></li>
                             <li></li>
                         </ul>
