@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<ProyectoTickets.INCIDENTE>
 
+
 @{
     ViewBag.Title = "Incidentes";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -12,7 +13,7 @@
         <h2>Tickets</h2>
         <hr />
 
-       
+
 
         @Html.ActionLink("Nuevo Ticket", "Create", "INCIDENTE", new { @data_toggle = "modal", @data_target = "#newTicket", @class = " btn btn-success" })
 
@@ -36,29 +37,31 @@
                                     <span class="id_label">
                                         <strong>ID-00-@Html.DisplayFor(modelItem => item.ID_INCIDENTE)</strong>
                                     </span>
-                                        &nbsp  &nbsp
-                                        Asunto: <strong>@Html.DisplayFor(modelItem => item.NOMBRE)</strong>
-                                        <span class="label label-primary">
-                                            @Html.DisplayFor(modelItem => item.PRIORIDAD.NOMBRE_PRIORIDAD)
-                                        </span>
-                                        <span class=" pull-right label label-primary">@Html.DisplayFor(modelItem => item.ESTADO.NOMBRE_ESTADO)</span>
-                                        <br />
-                                        <br />
-                                        <p class="info">
-                                            Creado por: <strong> @Html.DisplayFor(modelItem => item.AspNetUsers.UserName) </strong>
-                                            &nbsp | &nbsp &nbsp Fecha de creacion: <strong>  @Html.DisplayFor(modelItem => item.FECHA_CREACION)</strong>
-                                            &nbsp | &nbsp &nbsp Categoria: <i class="fa fa-comments"></i> <strong>@Html.DisplayFor(modelItem => item.CATEGORIA.NOMBRE_CATEGORIA)</strong>
-                                        </p>
+                                    &nbsp  &nbsp
+                                    Asunto: <strong>@Html.DisplayFor(modelItem => item.NOMBRE)</strong>
+                                    <span class="label label-primary">
+                                        @Html.DisplayFor(modelItem => item.PRIORIDAD.NOMBRE_PRIORIDAD)
+                                    </span>
+                                    <span class=" pull-right label label-primary">@Html.DisplayFor(modelItem => item.ESTADO.NOMBRE_ESTADO)</span>
+                                    <br />
+                                    <br />
+                                    <p class="info">
+                                        Creado por: <strong> @Html.DisplayFor(modelItem => item.AspNetUsers.UserName) </strong>
+                                        &nbsp | &nbsp &nbsp Fecha de creacion: <strong>  @Html.DisplayFor(modelItem => item.FECHA_CREACION)</strong>
+                                        &nbsp | &nbsp &nbsp Categoria: <i class="fa fa-comments"></i> <strong>@Html.DisplayFor(modelItem => item.CATEGORIA.NOMBRE_CATEGORIA)</strong>
+                                    </p>
 
-                                        <div class="pull-right">
-                                            @Html.ActionLink("Ver", "Details", new { id = item.ID_INCIDENTE }, new { @class = " btn btn-info" })
-                                            @Html.ActionLink("Responder", "Edit", new { id = item.ID_INCIDENTE }, new { @class = " btn btn-warning" })
-                                            @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_INCIDENTE }, new { @class = " btn btn-danger" })
-                                        </div>
+                                    <div class="pull-right">
+
+                                        @Html.ActionLink("Ver", "Details", new { id = item.ID_INCIDENTE }, new { @class = " btn btn-info" })
+                                        @Html.ActionLink("Responder", "Edit", new { id = item.ID_INCIDENTE }, new { @class = " btn btn-warning" })
+                                        @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_INCIDENTE }, new { @class = " btn btn-danger", @id = "borrarBtn" })
+                                        
+                                        
+                                    </div>
                                 </div>
                             </div>
                         </li>
-
                     </ul>
 
 
@@ -86,10 +89,10 @@
     <div class="modal-wrapper">
         <div class="modal-dialog">
             <div class="modal-content">
-             
+
                 <form action="#" method="post">
                     <div class="modal-body">
-                        <br />  
+                        <br />
                         CARGANDO...
                         <br />
                     </div>

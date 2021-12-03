@@ -7,107 +7,18 @@
 
 <h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+
 <div>
     <h4>INCIDENTE</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NOMBRE)
-        </dt>
+    
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-        <dd>
-            @Html.DisplayFor(model => model.NOMBRE)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DESCRIPCION)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DESCRIPCION)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FECHA_CREACION)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FECHA_CREACION)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FECHA_ACTUALIZACION)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FECHA_ACTUALIZACION)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DURACION)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DURACION)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MOTIVO_CIERRE)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MOTIVO_CIERRE)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AspNetUsers.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CANAL_ORIGEN.NOMBRE_ORIGEN)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CANAL_ORIGEN.NOMBRE_ORIGEN)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CATEGORIA.NOMBRE_CATEGORIA)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CATEGORIA.NOMBRE_CATEGORIA)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ESTADO.NOMBRE_ESTADO)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ESTADO.NOMBRE_ESTADO)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PRIORIDAD.NOMBRE_PRIORIDAD)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PRIORIDAD.NOMBRE_PRIORIDAD)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" id="btnBorrar" class="btn btn-default" /> 
+                </div>
+            }
+   
 </div>

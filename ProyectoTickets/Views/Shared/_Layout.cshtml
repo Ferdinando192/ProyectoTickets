@@ -26,8 +26,8 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                     <li>@Html.ActionLink("Incidente", "index", "Incidente")</li>
-                    
-                   
+
+
                     <li class="Dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administración<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -55,6 +55,9 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/jquery-ui.js")
     @Scripts.Render("~/Scripts/DatePickerReady.js")
+    @Scripts.Render("~/Scripts/main.js")
+    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @RenderSection("scripts", required: false)
 
 </body>
