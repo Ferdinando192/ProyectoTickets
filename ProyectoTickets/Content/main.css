@@ -543,3 +543,9 @@ header {
         font-size: 2em;
     }
 }
+
+
+.btnBorrarW {
+    margin-left:2rem;
+    width:15rem;
+}

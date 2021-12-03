@@ -2,6 +2,12 @@
 
 
 @{
+    <br />
+
+    <br />
+
+    <br />
+
     ViewBag.Title = "Incidentes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -55,9 +61,9 @@
 
                                         @Html.ActionLink("Ver", "Details", new { id = item.ID_INCIDENTE }, new { @class = " btn btn-info" })
                                         @Html.ActionLink("Responder", "Edit", new { id = item.ID_INCIDENTE }, new { @class = " btn btn-warning" })
-                                        @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_INCIDENTE }, new { @class = " btn btn-danger", @id = "borrarBtn" })
-                                        
-                                        
+                                        @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_INCIDENTE }, new { @class = " btn btn-danger", @data_toggle = "modal", @data_target = "#deleteTicket" })
+
+          
                                     </div>
                                 </div>
                             </div>
@@ -96,17 +102,33 @@
                         CARGANDO...
                         <br />
                     </div>
-                    <div class="modal-footer">
-                        <button type="button"
-                                class="btn btn-default"
-                                data-dismiss="modal">
-                            <i class="fa fa-times"></i> Discard
-                        </button>
-                        <button type="submit"
-                                class="btn btn-primary pull-right">
-                            <i class="fa fa-pencil"></i> Create
-                        </button>
+                  
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*  Modal DELETE *@
+
+<div class="modal fade"
+     id="deleteTicket"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="newIssue"
+     aria-hidden="true"
+     style="display: none; ">
+    <div class="modal-wrapper">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 451.988636px; padding:5px ">
+
+                <form action="#" method="post">
+                    <div class="modal-body">
+                        <br />
+                        CARGANDO...
+                        <br />
                     </div>
+
                 </form>
             </div>
         </div>

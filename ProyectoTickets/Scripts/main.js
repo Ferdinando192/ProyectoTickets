@@ -1,10 +1,14 @@
 ﻿
 /*Sweet alert Eliminar Incidente*/
+$('#alertaBorrar').click(function () {
+  
+    Swal.fire({
 
-Swal.fire({
-    position: 'top-end',
-    icon: 'error',
-    title: 'Se ha borrado el incidente',
-    showConfirmButton: false,
-    timer: 1500
+        position: 'top-end',
+        icon: 'error',
+        title: 'Se ha borrado el ticket',
+        showConfirmButton: false,
+        timer: 3500
+    })
 })
+
