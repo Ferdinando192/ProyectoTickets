@@ -2,22 +2,26 @@
 
 @{
     ViewBag.Title = "Crear Departamento";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/main.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/jquery-ui.css")
 }
 
 <h2>Crear Departamento</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
 
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            
+
             @Html.LabelFor(model => model.DEPARTAMENTO1, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DEPARTAMENTO1, new { htmlAttributes = new { @class = "form-control" } })

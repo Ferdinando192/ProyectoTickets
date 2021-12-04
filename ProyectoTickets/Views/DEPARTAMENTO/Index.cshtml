@@ -5,31 +5,121 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <h2>Departamentos</h2>
+
 
 <p>
     @Html.ActionLink("Crear Nuevo", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-        
-            Nombre del Departamento
-        </th>
-        <th></th>
-    </tr>
+<body>
+    <table class="table">
+        <tr>
+            <th>
+                Nombre del Departamento
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DEPARTAMENTO1)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.ID_DEPARTAMENTO }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.ID_DEPARTAMENTO }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.ID_DEPARTAMENTO })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DEPARTAMENTO1)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.ID_DEPARTAMENTO }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.ID_DEPARTAMENTO }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_DEPARTAMENTO })
+                </td>
+            </tr>
+        }
+    </table>
 
-</table>
+    <div class="body-ticket">
+        <div class="grid-body">
+
+            <h2>Departamentos</h2>
+            <hr />
+            @Html.ActionLink("Nuevo Departamento", "Create", "DEPARTAMENTO", new { @data_toggle = "modal", @data_target = "#newDepartamento", @class = " btn btn-success" })
+            <div class="container mt-3">
+                <h2>Hoverable Dark Table</h2>
+                <p>The .table-hover class adds a hover effect (grey background color) on table rows:</p>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre del Departamento</th>
+                        </tr>
+                    </thead>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DEPARTAMENTO1)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Editar", "Edit", new { id = item.ID_DEPARTAMENTO }) |
+                                @Html.ActionLink("Detalles", "Details", new { id = item.ID_DEPARTAMENTO }) |
+                                @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_DEPARTAMENTO })
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+@*  Modal CREATE *@
+
+<div class="modal fade"
+     id="newDepartamento"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="newIssue"
+     aria-hidden="true"
+     style="display: none">
+    <div class="modal-wrapper">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <form action="#" method="post">
+                    <div class="modal-body">
+                        <br />
+                        CARGANDO...
+                        <br />
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*  Modal DELETE *@
+
+<div class="modal fade"
+     id="deleteDepartamento"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="newIssue"
+     aria-hidden="true"
+     style="display: none; ">
+    <div class="modal-wrapper">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 451.988636px; padding:5px ">
+
+                <form action="#" method="post">
+                    <div class="modal-body">
+                        <br />
+                        CARGANDO...
+                        <br />
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
