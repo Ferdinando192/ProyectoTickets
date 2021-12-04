@@ -1,9 +1,11 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+   
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>@ViewBag.Title - Tickets CR</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/main.css")
@@ -21,56 +23,26 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("SGT", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("SIGT", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-
-                @if (User.IsInRole("Administrador"))
-                {
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Incidente", "index", "Incidente")</li>
-
-
-                        <li class="Dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administración<span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li class="menu">@Html.ActionLink("Administrar Departamentos", "Index", "DEPARTAMENTO")</li>
-                                <li class="menu">@Html.ActionLink("Administrar Categorías", "Index", "CATEGORIA")</li>
-                                <li class="menu">@Html.ActionLink("Administrar Roles", "Index", "AspNetRoles")</li>
-                                <li class="divider"></li>
-                                <li></li>
-                            </ul>
-                        </li>
-                    </ul>
-                }
-
-                @if (User.IsInRole("Soporte"))
-                {
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Incidente", "index", "Incidente")</li>
-                    </ul>
-                }
-
-                @if (User.IsInRole("Usuario Final"))
-                {
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Incidente", "index", "Incidente")</li>
-                    </ul>
-
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Incidente", "index", "Incidente")</li>
+                    
+                   
                     <li class="Dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administración<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li class="menu">@Html.ActionLink("Administrar Departamentos", "Index", "DEPARTAMENTO")</li>
+                            <li class="menu-item">@Html.ActionLink("Administrar Departamentos", "Index", "DEPARTAMENTO")</li>
+                            <li class="menu-item">@Html.ActionLink("Administrar Categorías", "Index", "CATEGORIA")</li>
+                            <li class="menu-item">@Html.ActionLink("Administrar Roles", "Index", "AspNetRoles")</li>
                             <li class="divider"></li>
                             <li></li>
                         </ul>
                     </li>
-                }
-
-                @Html.Partial("_LoginPartial")
+                </ul>
+                
             </div>
         </div>
     </div>
