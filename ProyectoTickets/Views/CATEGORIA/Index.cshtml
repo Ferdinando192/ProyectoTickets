@@ -1,19 +1,19 @@
 ﻿@model IEnumerable<ProyectoTickets.CATEGORIA>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Categorías de los Incidentes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Categorías</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NOMBRE_CATEGORIA)
+            Categorías
         </th>
         <th></th>
     </tr>
@@ -24,9 +24,9 @@
             @Html.DisplayFor(modelItem => item.NOMBRE_CATEGORIA)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_CATEGORIA }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_CATEGORIA }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_CATEGORIA })
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID_CATEGORIA }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.ID_CATEGORIA }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.ID_CATEGORIA })
         </td>
     </tr>
 }
