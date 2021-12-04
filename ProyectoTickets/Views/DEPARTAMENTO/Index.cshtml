@@ -1,19 +1,20 @@
 ﻿@model IEnumerable<ProyectoTickets.DEPARTAMENTO>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Departamentos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Departamentos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.DEPARTAMENTO1)
+        
+            Nombre del Departamento
         </th>
         <th></th>
     </tr>
