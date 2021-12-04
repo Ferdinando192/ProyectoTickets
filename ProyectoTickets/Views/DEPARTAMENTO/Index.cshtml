@@ -6,70 +6,80 @@
 }
 
 
-<h2>Departamentos</h2>
+@*<h2>Departamentos</h2>*@
 
 
-<p>
-    @Html.ActionLink("Crear Nuevo", "Create")
-</p>
-<body>
-    <table class="table">
-        <tr>
-            <th>
-                Nombre del Departamento
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+@*<p>
+        @Html.ActionLink("Crear Nuevo", "Create")
+    </p>
+    <body>
+        <table class="table">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DEPARTAMENTO1)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.ID_DEPARTAMENTO }) |
-                    @Html.ActionLink("Detalles", "Details", new { id = item.ID_DEPARTAMENTO }) |
-                    @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_DEPARTAMENTO })
-                </td>
+                <th>
+                    Nombre del Departamento
+                </th>
+                <th></th>
             </tr>
-        }
-    </table>
 
-    <div class="body-ticket">
-        <div class="grid-body">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DEPARTAMENTO1)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.ID_DEPARTAMENTO }) |
+                        @Html.ActionLink("Detalles", "Details", new { id = item.ID_DEPARTAMENTO }) |
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_DEPARTAMENTO })
+                    </td>
+                </tr>
+            }
+        </table>*@
+<br />
+<br />
+<br />
 
-            <h2>Departamentos</h2>
-            <hr />
-            @Html.ActionLink("Nuevo Departamento", "Create", "DEPARTAMENTO", new { @data_toggle = "modal", @data_target = "#newDepartamento", @class = " btn btn-success" })
-            <div class="container mt-3">
-                <h2>Hoverable Dark Table</h2>
-                <p>The .table-hover class adds a hover effect (grey background color) on table rows:</p>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nombre del Departamento</th>
-                        </tr>
-                    </thead>
+<div class="body-departamentos">
+    <div class="grid-body">
 
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DEPARTAMENTO1)
-                            </td>
-                            <td>
-                                @Html.ActionLink("Editar", "Edit", new { id = item.ID_DEPARTAMENTO }) |
-                                @Html.ActionLink("Detalles", "Details", new { id = item.ID_DEPARTAMENTO }) |
-                                @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_DEPARTAMENTO })
-                            </td>
-                        </tr>
-                    }
-                </table>
+        <h2>Departamentos</h2>
+        <hr />
+        @Html.ActionLink("Nuevo Departamento", "Create", "DEPARTAMENTO", new { @data_toggle = "modal", @data_target = "#newDepartamento", @class = " btn btn-success" })
+        <br />
+        <br />
+        <div class="container">
+            @*<h2>Administración de Departamentos</h2>*@
+            <div class="row justify-content-center">
+                <div class="col-sm-10">
+                    <table class="table table-hover center">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DEPARTAMENTO1)
+                                </td>
+
+                                <td>
+                                    @Html.ActionLink("Ver", "Details", new { id = item.ID_DEPARTAMENTO }, new { @class = " btn btn-info" })
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.ID_DEPARTAMENTO }, new { @class = " btn btn-warning" })
+                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_DEPARTAMENTO }, new { @class = " btn btn-danger", @data_toggle = "modal", @data_target = "#deleteTicket" })
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</body>
+</div>
+
 
 
 @*  Modal CREATE *@
