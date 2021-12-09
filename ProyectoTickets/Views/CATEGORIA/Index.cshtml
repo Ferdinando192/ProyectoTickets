@@ -5,30 +5,121 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Categorías</h2>
+@*<h2>Categorías</h2>
 
-<p>
-    @Html.ActionLink("Crear Nuevo", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            Categorías
-        </th>
-        <th></th>
-    </tr>
+    <p>
+        @Html.ActionLink("Crear Nuevo", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Categorías
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NOMBRE_CATEGORIA)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.ID_CATEGORIA }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.ID_CATEGORIA }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.ID_CATEGORIA })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOMBRE_CATEGORIA)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id=item.ID_CATEGORIA }) |
+                @Html.ActionLink("Detalles", "Details", new { id=item.ID_CATEGORIA }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id=item.ID_CATEGORIA })
+            </td>
+        </tr>
+    }
 
-</table>
+    </table>*@
+
+<br />
+<br />
+<br />
+
+<div class="body-categorias">
+    <div class="grid-body">
+
+        <h2>Categorías</h2>
+        <hr />
+        @Html.ActionLink("Nueva Categoría", "Create", "CATEGORIA", new { @data_toggle = "modal", @data_target = "#newCategoria", @class = " btn btn-success" })
+        <br />
+        <br />
+        <div class="padding"></div>
+        <div class="row">
+            <div class="container">
+                <div class="col-sm-11">
+                    <table class="table table-hover table-responsive">
+                        <thead>
+                            <tr class="bg-primary">
+                                <th scope="col">Nombre</th>
+                                <th scope="col" class="col-sm-3">Acciones</th>
+                            </tr>
+                        </thead>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NOMBRE_CATEGORIA)
+                                </td>
+                                <td class="pull-right">
+                                    @Html.ActionLink("Ver", "Details", new { id = item.ID_CATEGORIA }, new { @class = " btn btn-info" })
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.ID_CATEGORIA }, new { @class = " btn btn-warning" })
+                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_CATEGORIA }, new { @class = " btn btn-danger", @data_toggle = "modal", @data_target = "#deleteCategoria" })
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade"
+     id="newCategoria"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="newIssue"
+     aria-hidden="true"
+     style="display: none">
+    <div class="modal-wrapper">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="#" method="post">
+                    <div class="modal-body">
+                        <br />
+                        CARGANDO...
+                        <br />
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade"
+     id="deleteCategoria"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="newIssue"
+     aria-hidden="true"
+     style="display: none; ">
+    <div class="modal-wrapper">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 451.988636px; padding:5px ">
+
+                <form action="#" method="post">
+                    <div class="modal-body">
+                        <br />
+                        CARGANDO...
+                        <br />
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
