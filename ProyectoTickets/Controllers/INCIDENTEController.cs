@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ProyectoTickets;
+using System.Net.Mail;
+using System.Configuration;
+using System.Web.Configuration;
+using System.Net.Configuration;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Security;
 
 namespace ProyectoTickets.Controllers
 {
@@ -56,8 +63,29 @@ namespace ProyectoTickets.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.INCIDENTE.Add(iNCIDENTE);
-                db.SaveChanges();
+                  db.INCIDENTE.Add(iNCIDENTE);
+                   db.SaveChanges();
+                var id = iNCIDENTE.ID_INCIDENTE;
+                var nombre = iNCIDENTE.NOMBRE;
+                var descripcion = iNCIDENTE.DESCRIPCION;
+                var fecha_creacion = iNCIDENTE.FECHA_CREACION;
+
+                MailMessage correo = new MailMessage();
+                correo.From = new MailAddress("WLI@IMPETUSCR.com", "Sistema de Gestion de Tickets", System.Text.Encoding.UTF8);//Correo de salida
+                correo.To.Add("WAGNER201190@GMAIL.COM"); //Correo destino?
+                correo.Subject = "ID-00-"+id +" " + nombre; //Asunto
+                correo.Body = descripcion; //Mensaje del correo
+                correo.IsBodyHtml = true;
+                correo.Priority = MailPriority.Normal;
+                SmtpClient smtp = new SmtpClient();
+                smtp.UseDefaultCredentials = false;
+                smtp.Host = "smtp.gmail.com"; //Host del servidor de correo
+                smtp.Port = 587; //Puerto de salida
+                smtp.Credentials = new System.Net.NetworkCredential("WLI@IMPETUSCR.com", "Data123456!!");//Cuenta de correo
+                ServicePointManager.ServerCertificateValidationCallback = delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) { return true; };
+                smtp.EnableSsl = true;//True si el servidor de correo permite ssl
+                smtp.Send(correo);
+                //   Debug.WriteLine("test");
                 return RedirectToAction("Index");
             }
 
