@@ -12,3 +12,27 @@ $('#alertaBorrar').click(function () {
     })
 })
 
+$('#alertaBorrarDepartamento').click(function () {
+
+    Swal.fire({
+
+        position: 'center',
+        icon: 'error',
+        title: 'Se ha borrado el Departamento',
+        showConfirmButton: false,
+        timer: 3500
+    })
+})
+
+$('#alertaCrearDepartamento').click(function () {
+
+    Swal.fire({
+
+        position: 'center',
+        icon: 'success',
+        title: 'Se ha creado el Departamento',
+        showConfirmButton: false,
+        timer: 3500
+    })
+})
+

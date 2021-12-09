@@ -1,7 +1,7 @@
 ﻿@model ProyectoTickets.DEPARTAMENTO
 
 @{
-    ViewBag.Title = "Crear Departamento";
+    //ViewBag.Title = "Crear Departamento";
     Layout = null;
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/main.css")
@@ -9,38 +9,94 @@
     @Styles.Render("~/Content/jquery-ui.css")
 }
 
-<h2>Crear Departamento</h2>
+@*<h2>Crear Departamento</h2>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+
+                @Html.LabelFor(model => model.DEPARTAMENTO1, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DEPARTAMENTO1, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DEPARTAMENTO1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Crear" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Regresar a los Departamentos", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
 
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
+    <div class="card-all">
 
-            @Html.LabelFor(model => model.DEPARTAMENTO1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DEPARTAMENTO1, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DEPARTAMENTO1, "", new { @class = "text-danger" })
-            </div>
+        <div class="card-header text-center">
+
+            <h2>Crear nuevo Departamento</h2>
+
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Crear" class="btn btn-default" />
+        <div class="card-body ">
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <hr />
+
+
+                <div class="row">
+                    <div class="col-md-10 inputCreate">
+                        <div class="form-group">
+                            <label> @Html.DisplayName("Departamento")</label>
+                            <div>
+                                @Html.TextBoxFor(model => model.DEPARTAMENTO1, new { @class = "form-control", @rows = "1", @cols = "4" })
+                                @Html.ValidationMessageFor(model => model.DEPARTAMENTO1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer ">
+                <button type="button"
+                        class="btn btn-default modalBtn btnModals"
+                        data-dismiss="modal">
+                    Cerrar
+                </button>
+
+                <div class="pull-right">
+                    <input type="submit" value="Crear" id="alertaCrearDepartamento" name="alertaCrearDepartamento" class=" btnModals btn btn-primary" />
+                </div>
             </div>
         </div>
     </div>
+
 }
 
-<div>
-    @Html.ActionLink("Regresar a los Departamentos", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/Scripts/main.js")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/Scripts/jquery-ui.js")
+@Scripts.Render("~/Scripts/DatePickerReady.js")
