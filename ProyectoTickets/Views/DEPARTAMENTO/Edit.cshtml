@@ -4,40 +4,47 @@
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Edit</h2>
-
-
+<br />
+<br />
+<br />
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>DEPARTAMENTO</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID_DEPARTAMENTO)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DEPARTAMENTO1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DEPARTAMENTO1, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DEPARTAMENTO1, "", new { @class = "text-danger" })
-            </div>
+    <div class="card-all">
+        <div class="card-header text-center">
+            <h2>Modificar el Departamento</h2>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+        <div class="card-body">
+            <label class="label-primary label id_letra ">@Html.DisplayFor(model => model.DEPARTAMENTO1)</label>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID_DEPARTAMENTO)
+
+            <div class="form-group">
+                <label class="control-label col-md-2"> @Html.DisplayName("Departamento")</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DEPARTAMENTO1, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DEPARTAMENTO1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br /><br />
+            <hr />
+            <div class="form-group">
+                <div class="pull-right">
+                    <button class="btn btn-default "> @Html.ActionLink("Volver a los Departamentos", "Index")</button> |
+                    <input type="submit" value="Save" class="btn btn-success" />
+                </div>
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+

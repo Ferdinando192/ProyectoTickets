@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+@*<h2>Details</h2>
 
 <div>
     <h4>CATEGORIA</h4>
@@ -24,4 +24,53 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID_CATEGORIA }) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+</p>*@
+
+<hr />
+<br />
+<div class="card-all">
+
+    <div class="card-header text-center">
+
+        <h2>Detalle de la Categoría</h2>
+    </div>
+
+    <div class="card-body ">
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group ">
+                    <label class="label-primary label id_letra">@Html.DisplayFor(model => model.NOMBRE_CATEGORIA)</label>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>@Html.DisplayName("ID") </label>
+                    <div class="">
+                        @Html.DisplayFor(model => model.ID_CATEGORIA)
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label> @Html.DisplayName("Categoría") </label>
+                    <div>
+                        @Html.DisplayFor(model => model.NOMBRE_CATEGORIA)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="pull-right">
+            <button class="btn btn-default "> @Html.ActionLink("Volver a las Categorías", "Index")</button> |
+            @Html.ActionLink("Editar", "Edit", new { id = Model.ID_CATEGORIA }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+</div>

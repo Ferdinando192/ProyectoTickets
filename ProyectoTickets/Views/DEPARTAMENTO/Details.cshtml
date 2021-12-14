@@ -5,23 +5,71 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+@*<h2>Details</h2>
 
-<div>
-    <h4>DEPARTAMENTO</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.DEPARTAMENTO1)
-        </dt>
+    <div>
+        <h4>DEPARTAMENTO</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.DEPARTAMENTO1)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DEPARTAMENTO1)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DEPARTAMENTO1)
+            </dd>
 
-    </dl>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID_DEPARTAMENTO }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
+<hr />
+<br />
+<div class="card-all">
+
+    <div class="card-header text-center">
+
+        <h2>Detalle del Departamento</h2>
+    </div>
+
+    <div class="card-body ">
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group ">
+                    <label class="label-primary label id_letra">@Html.DisplayFor(model => model.DEPARTAMENTO1)</label>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>@Html.DisplayName("ID") </label>
+                    <div class="">
+                        @Html.DisplayFor(model => model.ID_DEPARTAMENTO)
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label> @Html.DisplayName("Departamento") </label>
+                    <div>
+                        @Html.DisplayFor(model => model.DEPARTAMENTO1)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="pull-right">
+            <button class="btn btn-default "> @Html.ActionLink("Volver a los Departamentos", "Index")</button> |
+            @Html.ActionLink("Editar", "Edit", new { id = Model.ID_DEPARTAMENTO }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_DEPARTAMENTO }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+@*<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -18,17 +18,114 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
-</table>
+</table>*@
+
+<br />
+<br />
+<br />
+
+<div class="body-roles">
+    <div class="grid-body">
+
+        <h2>Roles</h2>
+        <hr />
+        @Html.ActionLink("Nuevo Rol", "Create", "AspNetRoles", new { @data_toggle = "modal", @data_target = "#newRol", @class = " btn btn-success" })
+        <br />
+        <br />
+        <div class="padding"></div>
+        <div class="row">
+            <div class="container">
+                <div class="col-sm-11">
+                    <table class="table table-hover table-responsive">
+                        <thead>
+                            <tr class="bg-primary">
+                                <th scope="col">Nombre</th>
+                                <th scope="col" class="col-sm-3">Acciones</th>
+                            </tr>
+                        </thead>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td class="pull-right">
+                                    @Html.ActionLink("Ver", "Details", new { id = item.Id }, new { @class = " btn btn-info" })
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = " btn btn-warning" })
+                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = " btn btn-danger", @data_toggle = "modal", @data_target = "#deleteRol" })
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+                @*</div>*@
+            </div>
+        </div>
+    </div>
+
+    @*  Modal CREATE *@
+
+    <div class="modal fade"
+         id="newRol"
+         tabindex="-1"
+         role="dialog"
+         aria-labelledby="newIssue"
+         aria-hidden="true"
+         style="display: none">
+        <div class="modal-wrapper">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="#" method="post">
+                        <div class="modal-body">
+                            <br />
+                            CARGANDO...
+                            <br />
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*  Modal DELETE *@
+
+    <div class="modal fade"
+         id="deleteRol"
+         tabindex="-1"
+         role="dialog"
+         aria-labelledby="newIssue"
+         aria-hidden="true"
+         style="display: none; ">
+        <div class="modal-wrapper">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 451.988636px; padding:5px ">
+
+                    <form action="#" method="post">
+                        <div class="modal-body">
+                            <br />
+                            CARGANDO...
+                            <br />
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
