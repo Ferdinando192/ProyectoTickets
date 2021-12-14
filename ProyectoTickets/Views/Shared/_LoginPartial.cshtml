@@ -18,7 +18,7 @@ else
 
     <div class="text">
 
-        @Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+        @Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @data_toggle = "modal", @data_target = "#registerModal" })
         <br />
         @Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @data_toggle = "modal", @data_target = "#loginModal" })
     </div>

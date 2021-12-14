@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Inicio";
 }
 @section  scripts{
     <script src="@Url.Content("~/Content/estiloindex.js")" type="text/javascript"></script>
@@ -44,6 +44,33 @@
 
 <div class="modal fade"
      id="loginModal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="newIssue"
+     aria-hidden="true"
+     style="display: none">
+    <div class="modal-wrapper">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 451.988636px; padding:10px">
+
+                <form action="#" method="post">
+                    <div class="modal-body">
+                        <br />
+                        CARGANDO...
+                        <br />
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*  Modal crear user *@
+
+<div class="modal fade"
+     id="registerModal"
      tabindex="-1"
      role="dialog"
      aria-labelledby="newIssue"
