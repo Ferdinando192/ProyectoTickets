@@ -360,13 +360,14 @@ body {
 /*  Dropdown  */
 
 .dropdown-menu {
-    background: rgba(0, 0, 0, 0.1)
+    background: #ddd;
 }
 
-.dropdown-menu:hover {
-    background: rgba(0, 0, 0, 0.1);
-    color: white;
-}
+   
+.dropdown-menu menuitem:hover {
+        background-color: rgb(178, 255, 48);
+    }
+
 
 /*  Index  */
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
