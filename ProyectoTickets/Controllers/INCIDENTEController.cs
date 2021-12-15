@@ -69,12 +69,21 @@ namespace ProyectoTickets.Controllers
                 var nombre = iNCIDENTE.NOMBRE;
                 var descripcion = iNCIDENTE.DESCRIPCION;
                 var fecha_creacion = iNCIDENTE.FECHA_CREACION;
+                var categoria= iNCIDENTE.CATEGORIA;
+                var estado = iNCIDENTE.ESTADO;
+                var origen = iNCIDENTE.CANAL_ORIGEN;
+                var prioridad = iNCIDENTE.PRIORIDAD;
+            
 
                 MailMessage correo = new MailMessage();
                 correo.From = new MailAddress("WLI@IMPETUSCR.com", "Sistema de Gestion de Tickets", System.Text.Encoding.UTF8);//Correo de salida
-                correo.To.Add("WAGNER201190@GMAIL.COM"); //Correo destino?
+                correo.To.Add("proyectoticketsmvc@gmail.com"); //Correo destino?
                 correo.Subject = "ID-00-"+id +" " + nombre; //Asunto
-                correo.Body = descripcion; //Mensaje del correo
+                correo.Body = "Detalle del Ticket: " + descripcion +  "<br>" +
+                    "Fecha de Creacion : " + fecha_creacion + "<br>" +
+                   "Categoría : " + categoria + "<br>"
+                      + "Origen : " +origen + "<br>"
+                      + "prioridad : " + prioridad; //Mensaje del correo + 
                 correo.IsBodyHtml = true;
                 correo.Priority = MailPriority.Normal;
                 SmtpClient smtp = new SmtpClient();
