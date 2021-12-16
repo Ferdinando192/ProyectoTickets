@@ -1,0 +1,94 @@
+﻿@model IEnumerable<ProyectoTickets.INCIDENTE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA_CREACION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA_ACTUALIZACION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DURACION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MOTIVO_CIERRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CANAL_ORIGEN.NOMBRE_ORIGEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CATEGORIA.NOMBRE_CATEGORIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESTADO.NOMBRE_ESTADO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRIORIDAD.NOMBRE_PRIORIDAD)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DESCRIPCION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHA_CREACION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHA_ACTUALIZACION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DURACION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MOTIVO_CIERRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUsers.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CANAL_ORIGEN.NOMBRE_ORIGEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CATEGORIA.NOMBRE_CATEGORIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ESTADO.NOMBRE_ESTADO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRIORIDAD.NOMBRE_PRIORIDAD)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_INCIDENTE }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_INCIDENTE }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_INCIDENTE })
+        </td>
+    </tr>
+}
+
+</table>

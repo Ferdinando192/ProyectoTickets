@@ -17,13 +17,13 @@
 
 
         <div class="omb_login">
-            <h3 class="omb_authTitle">Inciar sesion o <a href="#"> @Html.ActionLink("Registrarse ", "Register")</a></h3>
+            <h3 class="omb_authTitle">Iniciar Sesión</h3>
           
 
             <div class="row omb_row-sm-offset-3 omb_loginOr">
                 <div class="col-xs-12 col-sm-6">
                     <hr class="omb_hrOr">
-                    <span class="omb_spanOr">or</span>
+                    <span class="omb_spanOr"></span>
                 </div>
             </div>
 
@@ -32,7 +32,7 @@
                     <form class="omb_loginForm" action="" autocomplete="off" method="POST">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Correo electronico" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Correo Electrónico" })
                             @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                         </div>
                         <span class="help-block"></span>
