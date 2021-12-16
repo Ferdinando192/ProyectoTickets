@@ -199,6 +199,14 @@ body {
     padding: 10px;
     background: #fff;
 }
+.body-usuarios {
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+    padding: 10px;
+    background: #fff;
+}
 /* SUPPORT TICKET */
 .support ul {
     list-style: none;

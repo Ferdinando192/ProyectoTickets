@@ -5,34 +5,104 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+@*<h2>Details</h2>
 
-<div>
-  
-    <hr />
-    <dl class="dl-horizontal">
+    <div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
+        <hr />
+        <dl class="dl-horizontal">
 
-        <dd>
-            @Html.DisplayFor(model => model.UserName)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.UserName)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
 
 
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
+
+<hr />
+<br />
+<div class="card-all">
+
+    <div class="card-header text-center">
+
+        <h2>Detalle del Usuario</h2>
+    </div>
+
+    <div class="card-body ">
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group ">
+                    <label class="label-primary label id_letra">@Html.DisplayFor(model => model.UserName)</label>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>@Html.DisplayName("ID") </label>
+                    <div class="">
+                        @Html.DisplayFor(model => model.Id)
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label> @Html.DisplayName("Usuario") </label>
+                    <div>
+                        @Html.DisplayFor(model => model.UserName)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label> @Html.DisplayName("Correo Electrónico") </label>
+                    <div>
+                        @Html.DisplayFor(model => model.Email)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>@Html.DisplayName("Activo") </label>
+                    <div class="">
+                        @Html.DisplayFor(model => model.LockoutEnabled)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+            <hr />
+            <div class="pull-right">
+                <button class="btn btn-default "> @Html.ActionLink("Volver a los Usuarios", "Index")</button> |
+                @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>

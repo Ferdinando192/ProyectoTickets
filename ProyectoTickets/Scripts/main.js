@@ -85,3 +85,27 @@ $('#alertaBorrarRol').click(function () {
         timer: 3500
     })
 })
+
+$('#alertaCrearUsuario').click(function () {
+
+    Swal.fire({
+
+        position: 'center',
+        icon: 'success',
+        title: 'Se ha creado el Usuario',
+        showConfirmButton: false,
+        timer: 3500
+    })
+})
+
+$('#alertaBorrarUsuario').click(function () {
+
+    Swal.fire({
+
+        position: 'center',
+        icon: 'error',
+        title: 'Se ha borrado el Usuario',
+        showConfirmButton: false,
+        timer: 3500
+    })
+})

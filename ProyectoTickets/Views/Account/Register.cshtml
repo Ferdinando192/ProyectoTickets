@@ -43,15 +43,18 @@
                         @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
                     </div>
                     <br />
-
                     <hr />
-                    <input type="submit" class="btn btn-primary btn-block btn-lg" value="Registrarse" />
-
+                    <div>
+                        <button type="button"
+                                class="btn btn-danger"
+                                data-dismiss="modal">
+                            Cerrar
+                        </button>
+                        <input type="submit" class="btn btn-primary" value="Registrarse" />
+                    </div>
                 </form>
             </div>
         </div>
-
-
     </div>
 }
 
