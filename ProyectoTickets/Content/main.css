@@ -321,7 +321,7 @@ body {
 }
 
 .card-header {
-    background: #007be9;
+    background: #a9df05;
     border-radius: 0.25rem;
     color: white;
 }
@@ -346,8 +346,8 @@ body {
 }
 
 .id_label {
-    background: #fbd428;
-    color:black ;
+    background: #a9df05;
+    color: black;
     border-radius: 20%;
     padding: 5px;
 }
