@@ -209,6 +209,7 @@
     <Compile Include="Controllers\DEPARTAMENTOController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\INCIDENTEController.cs" />
+    <Compile Include="Controllers\INCIDENTE_CLIENTEController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>CONN.tt</DependentUpon>
@@ -348,6 +349,11 @@
     <Content Include="Views\AspNetUsers\Details.cshtml" />
     <Content Include="Views\AspNetUsers\Edit.cshtml" />
     <Content Include="Views\AspNetUsers\Index.cshtml" />
+    <Content Include="Views\INCIDENTE_CLIENTE\Create.cshtml" />
+    <Content Include="Views\INCIDENTE_CLIENTE\Delete.cshtml" />
+    <Content Include="Views\INCIDENTE_CLIENTE\Details.cshtml" />
+    <Content Include="Views\INCIDENTE_CLIENTE\Edit.cshtml" />
+    <Content Include="Views\INCIDENTE_CLIENTE\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
