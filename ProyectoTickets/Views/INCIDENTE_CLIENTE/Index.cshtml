@@ -1,94 +1,146 @@
 ﻿@model IEnumerable<ProyectoTickets.INCIDENTE>
+@using Microsoft.AspNet.Identity
+
 
 @{
-    ViewBag.Title = "Index";
+    <br />
+
+    <br />
+
+    <br />
+
+    ViewBag.Title = "Incidentes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NOMBRE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DESCRIPCION)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FECHA_CREACION)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FECHA_ACTUALIZACION)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DURACION)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MOTIVO_CIERRE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CANAL_ORIGEN.NOMBRE_ORIGEN)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CATEGORIA.NOMBRE_CATEGORIA)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ESTADO.NOMBRE_ESTADO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PRIORIDAD.NOMBRE_PRIORIDAD)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NOMBRE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DESCRIPCION)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FECHA_CREACION)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FECHA_ACTUALIZACION)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DURACION)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MOTIVO_CIERRE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AspNetUsers.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CANAL_ORIGEN.NOMBRE_ORIGEN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CATEGORIA.NOMBRE_CATEGORIA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ESTADO.NOMBRE_ESTADO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PRIORIDAD.NOMBRE_PRIORIDAD)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_INCIDENTE }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_INCIDENTE }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_INCIDENTE })
-        </td>
-    </tr>
-}
+<div class="body-ticket">
+    <div class="grid-body">
+        <h2>Tickets</h2>
+        <hr />
 
-</table>
+
+
+        @Html.ActionLink("Nuevo Ticket", "Create", "INCIDENTE", new { @data_toggle = "modal", @data_target = "#newTicket", @class = " btn btn-success" })
+
+
+
+        <div class="padding"></div>
+        <div class="row">
+            <div class="col-md-12">
+
+                <!--LISTADO-->
+
+                @foreach (var item in Model)
+                {
+
+                    if (Request.IsAuthenticated)
+                    {
+
+                        <ul class="list-group fa-padding">
+
+                            <li class="list-group-item">
+                                <div class="media">
+                                    <i class="fa fa-cog pull-left"></i>
+                                    <div class="media-body">
+
+                                        <span class="id_label">
+                                            <strong>ID-00-@Html.DisplayFor(modelItem => item.ID_INCIDENTE)</strong>
+                                        </span>
+                                        &nbsp  &nbsp
+                                        Asunto: <strong>@Html.DisplayFor(modelItem => item.NOMBRE)</strong>
+                                        <span class="label label-primary">
+                                            @Html.DisplayFor(modelItem => item.PRIORIDAD.NOMBRE_PRIORIDAD)
+                                        </span>
+                                        <span class=" pull-right label label-primary">@Html.DisplayFor(modelItem => item.ESTADO.NOMBRE_ESTADO)</span>
+                                        <br />
+                                        <br />
+                                        <p class="info">
+                                            Creado por: <strong> @Html.DisplayFor(modelItem => item.AspNetUsers.UserName) </strong>
+                                            &nbsp | &nbsp &nbsp Fecha de creacion: <strong>  @Html.DisplayFor(modelItem => item.FECHA_CREACION)</strong>
+                                            &nbsp | &nbsp &nbsp Categoria: <i class="fa fa-comments"></i> <strong>@Html.DisplayFor(modelItem => item.CATEGORIA.NOMBRE_CATEGORIA)</strong>
+                                        </p>
+
+                                        <div class="pull-right">
+
+                                            @Html.ActionLink("Ver", "Details", new { id = item.ID_INCIDENTE }, new { @class = " btn btn-info" })
+                                            @Html.ActionLink("Responder", "Edit", new { id = item.ID_INCIDENTE }, new { @class = " btn btn-warning" })
+                                            @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_INCIDENTE }, new { @class = " btn btn-danger", @data_toggle = "modal", @data_target = "#deleteTicket" })
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+
+                    }
+
+
+
+
+                }
+                <!--FIN LISTADO-->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@*  Modal CREATE *@
+
+<div class="modal fade"
+     id="newTicket"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="newIssue"
+     aria-hidden="true"
+     style="display: none">
+    <div class="modal-wrapper">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <form action="#" method="post">
+                    <div class="modal-body">
+                        <br />
+                        CARGANDO...
+                        <br />
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*  Modal DELETE *@
+
+<div class="modal fade"
+     id="deleteTicket"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="newIssue"
+     aria-hidden="true"
+     style="display: none; ">
+    <div class="modal-wrapper">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 451.988636px; padding:5px ">
+
+                <form action="#" method="post">
+                    <div class="modal-body">
+                        <br />
+                        CARGANDO...
+                        <br />
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
