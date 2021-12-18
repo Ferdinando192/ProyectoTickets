@@ -32,9 +32,14 @@
 
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    @if (!User.IsInRole("Admin"))
+                    @if (User.IsInRole("Soporte"))
                     {
                         <li>@Html.ActionLink("Incidente", "index", "Incidente")</li>
+                    }  
+                    
+                    @if (!User.IsInRole("Soporte"))
+                    {
+                        <li>@Html.ActionLink("Mis tickets", "index", "INCIDENTE_CLIENTE")</li>
                     }
 
                         @if (User.IsInRole("Admin"))

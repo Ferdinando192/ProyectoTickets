@@ -30,13 +30,9 @@
             <div class="col-md-12">
 
                 <!--LISTADO-->
-           
+
                 @foreach (var item in Model)
                 {
-                    //el li :)
-                    if (User.IsInRole("Soporte") || (item.AspNetUsers.UserName == User.Identity.Name) )
-                    {
-
 
 
                     <ul class="list-group fa-padding">
@@ -69,15 +65,15 @@
                                         @Html.ActionLink("Responder", "Edit", new { id = item.ID_INCIDENTE }, new { @class = " btn btn-warning" })
                                         @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_INCIDENTE }, new { @class = " btn btn-danger", @data_toggle = "modal", @data_target = "#deleteTicket" })
 
-          
+
                                     </div>
                                 </div>
                             </div>
                         </li>
                     </ul>
-                    }
-
                 }
+
+
                 <!--FIN LISTADO-->
 
             </div>

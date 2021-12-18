@@ -38,8 +38,8 @@
                     <div class="form-group">
                         <label> @Html.DisplayName("Usuario")</label>
                         <div>
-                            @Html.DropDownList("ID_USUARIO", null, htmlAttributes: new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.ID_USUARIO, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => User.Identity.Name, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model =>  User.Identity.Name, "", new { @class = "text-danger " })
                         </div>
                     </div>
                 </div>
