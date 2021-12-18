@@ -12,10 +12,9 @@
 <div class="body-usuarios">
     <div class="grid-body">
 
-        <h2>Departamentos</h2>
+        <h2>Usuarios</h2>
         <hr />
-        @Html.ActionLink("Nuevo Usuario", "Create", "AspNetUsers", new { @data_toggle = "modal", @data_target = "#newUsuario", @class = " btn btn-success" })
-        @Html.ActionLink("Nuevo User lg", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @data_toggle = "modal", @data_target = "#registerModal", @class = " btn btn-success" })
+        @Html.ActionLink("Crear Nuevo Usuario", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @data_toggle = "modal", @data_target = "#registerModal", @class = " btn btn-success" })
         <br />
         <br />
         <div class="padding"></div>

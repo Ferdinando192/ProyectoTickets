@@ -14,6 +14,7 @@ using System.Web.Configuration;
 using System.Net.Configuration;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
+using Microsoft.AspNet.Identity;
 
 namespace ProyectoTickets.Controllers
 {
@@ -24,6 +25,8 @@ namespace ProyectoTickets.Controllers
         // GET: INCIDENTE
         public ActionResult Index()
         {
+
+            var usuario = "wagner201190@gmail.com";
             var iNCIDENTE = db.INCIDENTE.Include(i => i.AspNetUsers).Include(i => i.CANAL_ORIGEN).Include(i => i.CATEGORIA).Include(i => i.ESTADO).Include(i => i.PRIORIDAD);
             return View(iNCIDENTE.ToList());
         }
@@ -79,11 +82,10 @@ namespace ProyectoTickets.Controllers
                 correo.From = new MailAddress("WLI@IMPETUSCR.com", "Sistema de Gestion de Tickets", System.Text.Encoding.UTF8);//Correo de salida
                 correo.To.Add("proyectoticketsmvc@gmail.com"); //Correo destino?
                 correo.Subject = "ID-00-"+id +" " + nombre; //Asunto
-                correo.Body = "Detalle del Ticket: " + descripcion +  "<br>" +
-                    "Fecha de Creacion : " + fecha_creacion + "<br>" +
-                   "Categoría : " + categoria + "<br>"
-                      + "Origen : " +origen + "<br>"
-                      + "prioridad : " + prioridad; //Mensaje del correo + 
+                correo.Body = "<b>Asunto :</b> ID-00-" + id + " " + nombre + "<br>"+
+                    "<b>Fecha de Creacion :</b> " + fecha_creacion + "<br>" +
+                   "<b>Categoría : </b>" + "Software" + "<br>"
+                      + "<b>Detalle del Ticket: </b>" + descripcion   ; //Mensaje del correo + 
                 correo.IsBodyHtml = true;
                 correo.Priority = MailPriority.Normal;
                 SmtpClient smtp = new SmtpClient();

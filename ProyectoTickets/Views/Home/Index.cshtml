@@ -8,7 +8,10 @@
     <section class="showcase">
         <header>
             <h1 class="logo">SGT</h1>
-            <div class="toggle"></div>
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="toggle"></div>
+            }
         </header>
         <div class="overlay"></div>
         <div class="text">
@@ -26,16 +29,21 @@
             <li><a href="#"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
         </ul>
     </section>
-    <div class="menu">
-        <ul>
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="menu">
 
-            <li>@Html.ActionLink("Administrar Categorías", "Index", "CATEGORIA")</li>
-            <li>@Html.ActionLink("Administrar Departamentos", "Index", "DEPARTAMENTO")</li>
-            <li>@Html.ActionLink("Administrar Usuarios", "Index", "AspNetUsers")</li>
-            <li>@Html.ActionLink("Administrar Roles", "Index", "AspNetRoles")</li>
+            <ul>
 
-        </ul>
-    </div>
+                <li>@Html.ActionLink("Administrar Categorías", "Index", "CATEGORIA")</li>
+                <li>@Html.ActionLink("Administrar Departamentos", "Index", "DEPARTAMENTO")</li>
+                <li>@Html.ActionLink("Administrar Usuarios", "Index", "AspNetUsers")</li>
+                <li>@Html.ActionLink("Administrar Roles", "Index", "AspNetRoles")</li>
+
+            </ul>
+
+        </div>
+    }
 </div>
 
 

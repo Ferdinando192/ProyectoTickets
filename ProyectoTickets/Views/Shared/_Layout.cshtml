@@ -27,25 +27,33 @@
                 @Html.ActionLink("SGT", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
+                @if ((User.Identity.IsAuthenticated))
+                {
+
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Incidente", "index", "Incidente")</li>
-                    
-                   
-                    <li class="Dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administración<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li class="menu-item">@Html.ActionLink("Administrar Departamentos", "Index", "DEPARTAMENTO")</li>
-                            <li class="menu-item">@Html.ActionLink("Administrar Categorías", "Index", "CATEGORIA")</li>
-                            <li class="menu-item">@Html.ActionLink("Administrar Usuarios", "Index", "AspNetUsers")</li>
-                            <li class="menu-item">@Html.ActionLink("Administrar Roles", "Index", "AspNetRoles")</li>
+                    @if (!User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Incidente", "index", "Incidente")</li>
+                    }
 
-                            <li class="divider"></li>
-                            <li></li>
-                        </ul>
-                    </li>
-                </ul>
-                
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="Dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administración<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li class="menu-item">@Html.ActionLink("Administrar Departamentos", "Index", "DEPARTAMENTO")</li>
+                                    <li class="menu-item">@Html.ActionLink("Administrar Categorías", "Index", "CATEGORIA")</li>
+                                    <li class="menu-item">@Html.ActionLink("Administrar Usuarios", "Index", "AspNetUsers")</li>
+                                    <li class="menu-item">@Html.ActionLink("Administrar Roles", "Index", "AspNetRoles")</li>
+
+                                    <li class="divider"></li>
+                                    <li></li>
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                }
             </div>
         </div>
     </div>
