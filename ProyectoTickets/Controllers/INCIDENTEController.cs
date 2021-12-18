@@ -83,7 +83,7 @@ namespace ProyectoTickets.Controllers
                 correo.To.Add("proyectoticketsmvc@gmail.com"); //Correo destino?
                 correo.Subject = "ID-00-"+id +" " + nombre; //Asunto
                 correo.Body = "<b>Asunto :</b> ID-00-" + id + " " + nombre + "<br>"+
-                    "<b>Fecha de Creacion :</b> " + fecha_creacion + "<br>" +
+                    "<b>Fecha de Creación :</b> " + fecha_creacion + "<br>" +
                    "<b>Categoría : </b>" + "Software" + "<br>"
                       + "<b>Detalle del Ticket: </b>" + descripcion   ; //Mensaje del correo + 
                 correo.IsBodyHtml = true;
